@@ -67,50 +67,7 @@ eg
 ```sql
 select *
 from
-    (
-        select
-            freight_code
-          , order_code
-          , store_id
-          , transport_mode_id
-          , track_number
-          , status
-          , create_time
-          , delivery_time
-          , cut_off_remark
-          , cut_off_code
-          , track_status
-          , track_update_time
-          , update_time_cn
-          , delivery_time_cn
-          , scan_time
-
-        from
-            dip_ods.ods_order_freight_ff
-        where
-            dt = '2000-01-01'
-        union all
-        select
-            freight_code
-          , order_code
-          , store_id
-          , transport_mode_id
-          , track_number
-          , status
-          , create_time
-          , delivery_time
-          , cut_off_remark
-          , cut_off_code
-          , track_status
-          , track_update_time
-          , update_time_cn
-          , delivery_time_cn
-          , scan_time
-        from
-            dip_ods.ods_order_freight_his_ff
-        where
-            dt = '2000-01-01'
-    ) a
+tb
     distribute by rand()
 ```
 
